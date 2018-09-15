@@ -111,8 +111,8 @@ class Game {
             $secondPlayerChoice = $this->getRandomInteger();
 
             CLI::printLine("==========");
-            CLI::printLine("First Player Choice: " .  $this->getObjectPerId($firstPlayerChoice) . " $firstPlayerChoice");
-            CLI::printLine("Second Player Choice: " .  $this->getObjectPerId($secondPlayerChoice) . " $secondPlayerChoice");
+            CLI::printLine("First Player Choice: " .  $this->getObjectPerId($firstPlayerChoice));
+            CLI::printLine("Second Player Choice: " .  $this->getObjectPerId($secondPlayerChoice));
 
             $resultOfRound = $this->judgeWinner($firstPlayerChoice, $secondPlayerChoice);
 
