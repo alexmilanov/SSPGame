@@ -145,7 +145,7 @@ class Game {
 }
 
 $game = new Game();
-$game->insertOneObject("lizard", 3);
+$game->insertOneObject("lizard", 2);
 $game->playRounds(5);
 $game->play();
 $game->winner();
