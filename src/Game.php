@@ -105,7 +105,7 @@ class Game {
         $currentRound = 1;
 
         while($currentRound <= $this->totalRoundsCount) {
-            CLI::printLine("\n\nCurrent round is: $currentRound");
+            CLI::printLine("Current round is: $currentRound", 2);
 
             $firstPlayerChoice = $this->getRandomInteger();
             $secondPlayerChoice = $this->getRandomInteger();
@@ -126,7 +126,7 @@ class Game {
             $currentRound++;
         }
 
-        CLI::printLine("\nOK, the game has ended and there are a winner.");
+        CLI::printLine("OK, the game has ended and there are a winner.", 1);
     }
 
     private function getWinner() {
@@ -140,7 +140,7 @@ class Game {
     public function winner() {
         list($winner, $totalWinGames) = $this->getWinner();
 
-        CLI::printLine("\nPlayer No. $winner has won the game with total $totalWinGames wins");
+        CLI::printLine("Player No. $winner has won the game with total $totalWinGames wins", 1);
     }
 }
 
