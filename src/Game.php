@@ -144,8 +144,8 @@ class Game {
     }
 }
 
-$test = new Game();
-$test->insertOneObject("lizard", 3);
-$test->playRounds(5);
-$test->play();
-$test->winner();
+$game = new Game();
+$game->insertOneObject("lizard", 3);
+$game->playRounds(5);
+$game->play();
+$game->winner();
