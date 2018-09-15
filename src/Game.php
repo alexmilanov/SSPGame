@@ -32,7 +32,15 @@ class Game {
         $this->checkIsPositive($rounds);
         $this->checkIsOdd($rounds);
 
+        $this->setRounds($rounds);
+    }
+
+    public function setRounds($rounds) {
         $this->totalRoundsCount = $rounds;
+    }
+
+    private function getRounds() {
+        return $this->totalRoundsCount;
     }
 
     private function checkIsPositive($number) {
@@ -62,13 +70,13 @@ class Game {
     but it's good enough for the current case
     */
     private function getRandomInteger() {
-        $totalObjectCount = count($this->objects);
+        $totalObjectCount = count($this->getObjects());
 
         return rand(0, $totalObjectCount - 1);
     }
 
     private function judgeWinner($firstPlayerChoice, $secondPlayerChoice) {
-        $maxPossibleChoice = count($this->objects) - 1;
+        $maxPossibleChoice = count($this->getObjects()) - 1;
 
         //This is the so called edge cases
         if($firstPlayerChoice == 0 && $secondPlayerChoice == $maxPossibleChoice) return self::FIRST_PLAYER;
@@ -89,12 +97,16 @@ class Game {
         $this->checkIsInt($objectPosition);
         $this->checkIsPositive($objectPosition);
 
-        array_splice($this->objects, $objectPosition, 0, $objectName);
+        array_splice($this->getObjects(), $objectPosition, 0, $objectName);
         $this->objects = array_values($this->objects);
     }
 
-    public function insertManyObjects($objectsArray) {
+    private function getObjects() {
+        return $this->objects;
+    }
 
+    public function insertManyObjects($objectsArray) {
+        //To Do
     }
 
     private function updateResult($winnerId) {
@@ -103,8 +115,9 @@ class Game {
 
     public function play() {
         $currentRound = 1;
+        $totalRounds = $this->getRounds();
 
-        while($currentRound <= $this->totalRoundsCount) {
+        while($currentRound <= $totalRounds) {
             CLI::printLine("Current round is: $currentRound", 2);
 
             $firstPlayerChoice = $this->getRandomInteger();
