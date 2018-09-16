@@ -37,8 +37,6 @@ class Game {
 
     private function setRounds($rounds) {
         $this->totalRoundsCount = $rounds;
-
-        return true;
     }
 
     private function getRounds() {
@@ -102,8 +100,6 @@ class Game {
         $objects = $this->getObjects();
         array_splice($objects, $objectPosition, 0, $objectName);
         $this->objects = array_values($this->objects);
-
-        return true;
     }
 
     private function getObjects() {

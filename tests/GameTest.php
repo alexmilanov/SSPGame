@@ -27,10 +27,6 @@ class GameTest extends TestCase {
         $this->gameInstance->playRounds(4);
     }
 
-    public function testPlayRoundsCanBeCreatedFromValidInput() {
-        $this->assertTrue($this->gameInstance->playRounds(5));
-    }
-
     public function testInsertOneObjectCannotBeCreatedFromNonIntegerValue() {
         $this->expectException(Exception::class);
         $this->gameInstance->insertOneObject('a', 'a');
@@ -39,9 +35,5 @@ class GameTest extends TestCase {
     public function testInsertOneObjectCannotBeCreatedFromNonPositiveIntegerValue() {
         $this->expectException(Exception::class);
         $this->gameInstance->insertOneObject('a', -1);
-    }
-
-    public function testInsertOneObjectCanBeCreatedWithValidInput() {
-        $this->assertTrue($this->gameInstance->insertOneObject('testAssert', 3));
     }
 }
